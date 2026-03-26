@@ -1,0 +1,94 @@
+openapi: 3.0.0
+info:
+  title: Event Booking API
+  version: 1.0.0
+  description: Mini Event Management System API
+
+servers:
+  - url: http://localhost:3000/api
+
+  paths:
+  /events:
+    get:
+      summary: Get all events
+      responses:
+        '200':
+          description: List of events
+
+              post:
+      summary: Create event
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                event_title:
+                  type: string
+                event_desc:
+                  type: string
+                event_date:
+                  type: string
+                total_capacity:
+                  type: integer
+      responses:
+        '201':
+          description: Event created
+
+            /events/{event_id}/bookings:
+    post:
+      summary: Book ticket
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: integer
+                event_id:
+                  type: integer
+                ticket_count:
+                  type: integer
+      responses:
+        '200':
+          description: Booking successful
+
+
+            /users/{id}/bookings:
+    get:
+      summary: Get bookings by user
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: List of bookings
+
+
+            /events/{id}/attendance:
+    post:
+      summary: Mark attendance
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                booking_code:
+                  type: string
+      responses:
+        '200':
+          description: Ticket count returned
