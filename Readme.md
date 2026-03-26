@@ -1,69 +1,133 @@
-Event Booking System(Using Node.js and MYSQL)
+# Event Booking System (Node.js + MySQL)
 
-Overview: This is a event booking system developed usig nodejs and mysql database.
-User can create events, book tickets, view events
+## Overview
 
-Tech Stack:
-Node.js
-MySQL
-Rest api
-OpenApi(Swagger) for documentation
+This project is a simple Event Booking System built using Node.js and MySQL.
 
-API Endpoints
+The idea behind this project is to create a backend system where users can:
 
-1. Get all events
-    GET /api/events
+* Create events
+* View available events
+* Book tickets
+* Check their bookings
+* Mark attendance using a booking code
 
-2. Create event
-    POST /api/events
+The system is designed to handle bookings safely and avoid issues like overbooking.
 
-3. Book tickets
-    POST /api/events/:id/book
+---
 
+## Tech Stack
 
-4. Get user bookings
-    GET /api/users/:id/bookings
+* Node.js (Express.js)
+* MySQL
+* REST APIs
+* Swagger (OpenAPI)
 
-5. Mark attendance
-    POST /api/events/:id/attendance
+---
 
+## API Endpoints
 
-Setup Instructions
-1. Clone repository
-git clone <your-repo-link>
-cd event-booking-system
+### Get all events
 
-2. Install dependencies
+```
+GET /api/events
+```
+
+### Create a new event
+
+```
+POST /api/events
+```
+
+### Book tickets for an event
+
+```
+POST /api/events/:id/book
+```
+
+### Get all bookings of a user
+
+```
+GET /api/users/:id/bookings
+```
+
+### Mark attendance using booking code
+
+```
+POST /api/events/:id/attendance
+```
+
+---
+
+## How to Run the Project
+
+### 1. Clone the repository
+
+```
+git clone : https://github.com/thedhruvguptawork/Event_Booking_System.git
+cd Event-Booking-System
+```
+
+### 2. Install dependencies
+
+```
 npm install
+```
 
-3. Setup environment variables
+### 3. Setup environment variables
 
-Create .env file:
+Create a `.env` file in the root folder and add:
+
+```
 DB_HOST=localhost
 DB_USER=root
-DB_PASSWORD=yourpassword
+DB_PASSWORD=<your_password>
 DB_NAME=event_booking_system
 PORT=3000
+```
 
-4. Setup database
-Run the provided .sql file
-Or manually create tables
+---
 
-5. Run server
+### 4. Setup the database
+
+* Run the provided `.sql` file
+* Or create the tables manually
+
+---
+
+### 5. Start the server
+
+```
 node app.js
+```
 
+---
 
-Testing
-Use:
-Postman collection (included)
-Swagger file (swagger.yaml)
+## Testing the APIs
 
-Submission Includes
-GitHub Repository
-README.md
-Database Schema (.sql)
-Swagger Documentation
-Postman Collection
+You can test all APIs using:
 
-Notes:
-Dummy users are pre-inserted for testing
+* Postman (collection included)
+* Swagger file (`swagger.yaml`)
+
+---
+
+## What’s Included
+
+* Complete backend code
+* Database schema (.sql file)
+* Swagger documentation
+* Postman collection
+
+---
+
+## Notes
+
+* Dummy users are already added for testing
+* Authentication is not included as it was not required in the assignment
+
+---
+
+## Author
+
+Dhruv Gupta
